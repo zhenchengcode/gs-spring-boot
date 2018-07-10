@@ -14,11 +14,17 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+// @AutoConfigureMockMvc + @SpringBootTest => inject MockMvc instance
+
+// @SpringBootTest: create whole application context
+// @WebMvcTest: create only the web layers of the context
+// Spring Boot automatically find the main class
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
 public class HelloControllerTest {
 
+    // from Spring Test, send HTTP request into DispatcherServlet and make assertion about result
     @Autowired
     private MockMvc mvc;
 
